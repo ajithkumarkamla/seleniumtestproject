@@ -8,6 +8,7 @@ import java.time.Duration;
 public class LoginPage {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     By txtUsername = By.name("username");
     By txtPassword = By.name("password");
@@ -18,6 +19,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void login(String uname, String pwd) {
@@ -32,16 +34,15 @@ public class LoginPage {
 
     public boolean isDashboardDisplayed() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOfElementLocated(dashboard));
             return true;
-        } catch (Exception e) {
+        } catch (TimeoutException e) {
             return false;
         }
     }
 
     public void logout() {
         driver.findElement(userDropdown).click();
-        driver.findElement(logoutBtn).click();
+        wait.until(ExpectedConditions.elementToBeClickable(logoutBtn)).click();
     }
 }

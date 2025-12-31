@@ -21,7 +21,12 @@ public class ExtentManager {
         return test;
     }
 
+    public static ExtentTest getTest() {
+        return test;
+    }
+
     public static void flushReport() {
         extent.flush();
     }
+    
 }

@@ -7,8 +7,9 @@
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="verifyLogin"/>
+          <include name="checkResult"/>
           <include name="beforeSuite"/>
+          <include name="verifyLogin" invocation-numbers="0 3"/>
           <include name="afterSuite"/>
         </methods>
       </class> <!-- testCases.LoginTest -->

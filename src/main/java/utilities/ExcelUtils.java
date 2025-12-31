@@ -7,7 +7,7 @@ import org.apache.poi.xssf.usermodel.*;
 public class ExcelUtils {
 
     static String path = System.getProperty("user.dir")
-            + "/src/test/resources/testdata/LoginDatas.xlsx";
+            + "/src/main/resources/testdata/LoginDatas.xlsx";
 
     public static Object[][] getExcelData() throws Exception {
         FileInputStream fis = new FileInputStream(new File(path));

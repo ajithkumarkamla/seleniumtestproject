@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "loginData", retryAnalyzer = RetryAnalyzer.class)
     public void verifyLogin(String username, String password, String expected) {
 
-        utilities.ExtentManager.createTest("Login Test: " + username);
+        ExtentManager.createTest("Login Test: " + username);
 
         LoginPage lp = new LoginPage(driver);
         lp.login(username, password);
@@ -39,6 +39,6 @@ public class LoginTest extends BaseTest {
 
     @DataProvider(name = "loginData")
     public Object[][] getData() throws Exception {
-        return ExcelUtils.getExcelData();
+        return ExcelUtils.getExcelData(); // Reads Excel file for credentials
     }
 }
